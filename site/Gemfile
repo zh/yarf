@@ -1,0 +1,15 @@
+source :rubygems
+
+gem 'rake'
+gem 'rack'
+gem 'erubis'
+gem 'rdiscount'
+gem 'tilt'
+gem 'http_router'
+gem 'thin'
+
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'simplecov'
+end
