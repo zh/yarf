@@ -17,7 +17,7 @@ end
 
 gemspec = Gem::Specification.new do |s|
   s.name        = "yarf"
-  s.version     = "0.0.1"
+  s.version     = "0.1.1"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Yes Another Rack Framework"
   s.email       = "zh@zhware.net"
@@ -25,24 +25,20 @@ gemspec = Gem::Specification.new do |s|
   s.description = "A minimalist (and relatively useless) Ruby/Rack web application framework."
   s.authors     = ["Stoyan Zhekov"]
   s.require_paths = ['lib']
-  s.files       = %w(README Rakefile yarf.gemspec) + Dir["{lib}/**/*"]
+  s.has_rdoc    = false
+  s.files       = %w(LICENSE README.md Rakefile Gemfile Gemfile.lock yarf.gemspec .rspec) + Dir["{lib,examples,spec}/**/*"]
 
   s.required_ruby_version = '>= 1.9.2'
 
-  # RDoc
-  s.has_rdoc         = true
-  s.rdoc_options     = ["--main", "README"]
-  s.extra_rdoc_files = ["README"]
 
   # Dependencies
   s.add_dependency    "rack"
   s.add_dependency    "erubis"
   s.add_dependency    "tilt"
+  s.add_dependency    "http_router"
 
   s.add_development_dependency 'rake'
   s.add_development_dependency 'thin'
-  s.add_development_dependency 'erubis'
-  s.add_development_dependency 'tilt'
   s.add_development_dependency 'rack-test'
   s.add_development_dependency 'rspec'
 end
