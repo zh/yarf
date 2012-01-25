@@ -39,7 +39,8 @@ class Yarf
       @response = Rack::Response.new
       options = args.last.is_a?(Hash) ? args.pop : {}
       @response.status = options.delete(:status) || 200
-      @content = args.last.is_a?(String) ? args.last : theme(args.last.to_s)
+      engine = options.delete(:engine) || :erb
+      @content = args.last.is_a?(String) ? args.last : theme(args.last.to_s, engine)
       layout = options.delete(:layout) || @@layout
       @content = theme(layout) unless layout == :none
       @response.headers.merge!(options)

@@ -1,0 +1,45 @@
+  <div class="hero-unit">
+    <h2>YARF - Yet Another Rack Framework</h2>
+    <p>YARF is a Rack-based framework that makes it extremely easy to develop RESTful data services.
+    It is inspired by Sinatra, and follows a few of its conventions. 
+    Sinatra is a powerful tool for full web applications, while YARF is used to demonstrate Rack.
+    It makes development as easy as possible.
+    <p><a class="btn primary large" href="/intro">Learn more &raquo;</a></p>
+  </div>
+  
+  <div class="row">
+    <div class="span5">
+      <h2>Features</h2>
+      <p>
+      <ul>
+        <li>Small (< 100LOC) and fast</li>
+        <li>Templates via Tilt</li>
+        <li>Routing via HTTP-Router</li>
+        <li>Static assets - via <i>Rack::Static</i></li>
+      </ul>
+      </p>
+      <p><a class="btn" href="/docs">View details &raquo;</a></p>
+    </div>
+    <div class="span5">
+      <h2>Pre-requirements</h2>
+      <p>
+      <ul>
+        <li>rack</li>
+        <li>tilt</li>
+        <li>erubis</li>
+        <li>http_router</li>
+      </ul>
+      </p>
+    </div>
+    <div class="span5">
+      <h2>Usage</h2>
+      <p>
+      <pre>
+run HttpRouter.new {
+  add('/static').static(Yarf.root("public"))
+  add('/*').to {|env| MyApp.new.call(env) }
+}
+      </pre>
+      </p>
+    </div>
+  </div>
