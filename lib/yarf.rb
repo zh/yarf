@@ -59,6 +59,9 @@ class Yarf
     @request = Rack::Request.new(env)
     @params = @request.params.symbolize_keys
     @env = env
+    if @params[:_method] and HTTP_METHODS.include?(@params[:_method].downcase.to_sym)
+      @env['REQUEST_METHOD'] = @params[:_method].upcase
+    end
     matches, _ = @@router.recognize(@env)
     return [404,{},"Not found"] unless matches
     @@router.call(@env)

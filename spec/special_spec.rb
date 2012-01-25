@@ -3,17 +3,14 @@ require ::File.dirname(__FILE__) + "/spec_helper"
 describe 'special pages' do
   include Rack::Test::Methods
 
-  let(:app) do
-    class TestApp < Yarf
-      layout :none
-      get '/go/to/main' do
-        redirect_to '/'
-      end
-      get '/' do
-        render 'main'
-      end
+  let(:app) { TestApp.new }
+
+  context 'non-existing page' do
+    before { get '/non-exists' }
+
+    it 'return 404' do
+      last_response.status == 404
     end
-    TestApp.new
   end
 
   context 'redirect page' do
