@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification
 name: yarf
 version: !ruby/object:Gem::Version
-  version: 0.1.2
+  version: 0.2.1
   prerelease: 
 platform: ruby
 authors:
@@ -13,7 +13,7 @@ date: 2012-01-26 00:00:00.000000000 Z
 dependencies:
 - !ruby/object:Gem::Dependency
   name: rack
-  requirement: &70140725774100 !ruby/object:Gem::Requirement
+  requirement: &70255680214200 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -21,10 +21,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70140725774100
+  version_requirements: *70255680214200
 - !ruby/object:Gem::Dependency
   name: erubis
-  requirement: &70140725773280 !ruby/object:Gem::Requirement
+  requirement: &70255680213260 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -32,10 +32,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70140725773280
+  version_requirements: *70255680213260
 - !ruby/object:Gem::Dependency
   name: tilt
-  requirement: &70140725772340 !ruby/object:Gem::Requirement
+  requirement: &70255680212440 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -43,10 +43,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70140725772340
+  version_requirements: *70255680212440
 - !ruby/object:Gem::Dependency
   name: http_router
-  requirement: &70140725771580 !ruby/object:Gem::Requirement
+  requirement: &70255679442620 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -54,10 +54,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70140725771580
+  version_requirements: *70255679442620
 - !ruby/object:Gem::Dependency
   name: rake
-  requirement: &70140727035760 !ruby/object:Gem::Requirement
+  requirement: &70255679441340 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -65,10 +65,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70140727035760
+  version_requirements: *70255679441340
 - !ruby/object:Gem::Dependency
   name: thin
-  requirement: &70140727034540 !ruby/object:Gem::Requirement
+  requirement: &70255679440280 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -76,10 +76,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70140727034540
+  version_requirements: *70255679440280
 - !ruby/object:Gem::Dependency
   name: rack-test
-  requirement: &70140727033500 !ruby/object:Gem::Requirement
+  requirement: &70255679439440 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -87,10 +87,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70140727033500
+  version_requirements: *70255679439440
 - !ruby/object:Gem::Dependency
   name: rspec
-  requirement: &70140727032740 !ruby/object:Gem::Requirement
+  requirement: &70255679438520 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -98,7 +98,7 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70140727032740
+  version_requirements: *70255679438520
 description: A minimalist (and relatively useless) Ruby/Rack web application framework.
 email: zh@zhware.net
 executables: []
