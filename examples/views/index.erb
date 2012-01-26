@@ -1,1 +1,12 @@
 Welcome to <%= @title %>. Click <a href='/time/now'>here</a> to check the time.
+
+<h2>Sessions</h2>
+<% if session[:yarf] %>
+Session: <%= session[:yarf] %>
+<% end %>
+<p>
+<ul>
+  <li><a href="/session/hello">Add sesion stuff</a></li>
+  <li><a href="/session/clear">Clear the session</a></li>
+</ul>
+</p>

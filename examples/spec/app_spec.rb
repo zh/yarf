@@ -9,7 +9,7 @@ describe 'YARF' do
   context 'main page' do
     before { get '/' }
 
-    it 'should display the page' do
+    it 'display the page' do
       should be_ok
       last_response.headers["Content-Type"].should == "text/html"
       should match %r/Welcome/i
@@ -37,7 +37,7 @@ describe 'YARF' do
   context 'render with views' do
     before { get '/time/now' }
 
-    it 'should render the view' do
+    it 'render the view' do
       should be_ok
       last_response.headers["Content-Type"].should == "text/html"
       should match %r/Current time is:/i
@@ -47,7 +47,7 @@ describe 'YARF' do
   context 'route with parameter' do
     before { get '/show/1111' }
 
-    it 'should display page with ID' do
+    it 'display page with ID' do
       should be_ok
       last_response.body.should == "<h1>Special!</h1>\nID=1111\n"
     end
@@ -56,10 +56,22 @@ describe 'YARF' do
   context 'nested route' do
     before { get '/admin/secret' }
 
-    it 'should display admin page' do
+    it 'display admin page' do
       should be_ok
       last_response.body.should == "secret admin stuff\n"
     end
+  end
+
+  context 'sessions' do
+    it 'set session' do
+      get '/session/stuff'
+      session[:yarf] == "stuff"
+    end 
+
+    it 'clear session' do
+      get '/session/clear'
+      session.should == {}
+    end 
   end
 
 end

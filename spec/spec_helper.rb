@@ -5,6 +5,10 @@ ENV['RACK_ENV'] ||= "test"
 require 'yarf'
 require 'rack/test'
 
+def session
+  last_request.env['rack.session']
+end
+
 class TestApp < Yarf
   layout :none
 
@@ -45,6 +49,18 @@ class TestApp < Yarf
       get '/get' do
         render "again"
       end
+    end
+  end
+
+  with "/session" do
+    get "/clear" do
+      session.clear
+      redirect_to "/"
+    end
+
+    get "/:value" do
+      session[:yarf] = params[:value]
+      render "session"
     end
   end
 end

@@ -14,6 +14,10 @@ class TimeCheckerApp < Yarf
     redirect_to "/"
   end
 
+  get "/error" do
+    redirect_to "/"
+  end
+
   get "/show/:id" do
     render "ID=#{params[:id]}", :layout => :special
   end
@@ -21,6 +25,18 @@ class TimeCheckerApp < Yarf
   with "/admin" do
     get "/secret" do
       render "secret admin stuff"
+    end
+  end
+
+  with "/session" do
+    get "/clear" do
+      session.clear
+      redirect_to "/"
+    end
+
+    get "/:value" do
+      session[:yarf] = params[:value]
+      render :session
     end
   end
 end
