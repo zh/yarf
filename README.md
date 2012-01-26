@@ -12,7 +12,7 @@ A minimalist (and relatively useless) Ruby web applications framework.
 * Routes with parameters - <code>'/show/:id', '/admin/*'</code>
 * Redirects with status - 301 or 302
 * Global and per action layouts
-* Nesting routes - <code>with '/admin' do … end</code>
+* Nesting routes - <code>with '/admin' do ... end</code>
 * Static assets - via *Rack::Static*
 * Lots of tests included - using *rspec* and *rack-test*
 
@@ -77,10 +77,8 @@ or
 * [Travis CI building results](http://travis-ci.org/#!/zh/yarf)
 
 
-
 ## TODO
 
-* support for sessions - via *Rack::Session*
 * support for helpers
-* embedded templates - <code>erb '<%= … %>'</code>
+* embedded templates - <code>erb '<%= ... %>'</code>
 * more tests

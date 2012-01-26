@@ -1,7 +1,8 @@
 source :rubygems
 
 gem 'rake'
-gem 'rack'
+gem 'rack', '1.3.6'
+gem 'rack-contrib'
 gem 'erubis'
 gem 'tilt'
 gem 'http_router'

@@ -20,6 +20,7 @@ class Yarf
     def static(r,path); @@router.add(r).static(path); end
     def layout(name); @@layout = name; end
     def redirect_to(path,status=302); [status, {"Location"=>path}, []]end
+    def session; env['rack.session'] ||= {}; end   # need Rack::Session
 
     def with(route, &block)
       @@with.push(route)
