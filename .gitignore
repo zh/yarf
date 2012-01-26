@@ -1,0 +1,12 @@
+*.orig
+*.rej
+*~
+*.log
+*.db
+*.gem
+.DS_Store
+.idea
+.bundle
+.rsync_cache
+backup
+coverage
