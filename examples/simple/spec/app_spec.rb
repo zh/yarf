@@ -2,15 +2,17 @@ require ::File.expand_path('../spec_helper.rb', __FILE__)
 
 describe 'YARF' do
   include Rack::Test::Methods
+  include Warden::Test::Helpers
 
   let(:app) { TimeCheckerApp.new }
-  subject { last_response }
+  subject { last_response.body }
+  after{ Warden.test_reset! }
 
   context 'main page' do
     before { get '/' }
 
     it 'display the page' do
-      should be_ok
+      last_response.should be_ok
       last_response.headers["Content-Type"].should == "text/html"
       should match %r/Welcome/i
     end
@@ -28,9 +30,9 @@ describe 'YARF' do
     before { get '/go/to/main' }
 
     it 'go to main page' do
-      should be_redirect
+      last_response.should be_redirect
       follow_redirect!
-      last_response.body.should match %r/Welcome/i
+      should match %r/Welcome/i
     end
   end
 
@@ -38,7 +40,7 @@ describe 'YARF' do
     before { get '/time/now' }
 
     it 'render the view' do
-      should be_ok
+      last_response.should be_ok
       last_response.headers["Content-Type"].should == "text/html"
       should match %r/Current time is:/i
     end
@@ -48,8 +50,8 @@ describe 'YARF' do
     before { get '/show/1111' }
 
     it 'display page with ID' do
-      should be_ok
-      last_response.body.should == "<h1>Special!</h1>\nID=1111\n"
+      last_response.should be_ok
+      should == "<h1>Special!</h1>\nID=1111\n"
     end
   end
 
@@ -57,8 +59,8 @@ describe 'YARF' do
     before { get '/admin/secret' }
 
     it 'display admin page' do
-      should be_ok
-      last_response.body.should == "secret admin stuff\n"
+      last_response.should be_ok
+      should match %r/secret admin stuff/i
     end
   end
 

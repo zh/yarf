@@ -6,6 +6,7 @@ gem 'rack-contrib'
 gem 'erubis'
 gem 'tilt'
 gem 'http_router'
+gem 'warden'
 gem 'thin'
 
 group :test do

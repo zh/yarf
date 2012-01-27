@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__),'..','lib','yarf')
+require 'yarf'
 
 class YarfSite < Yarf
   get "/" do

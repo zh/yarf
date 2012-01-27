@@ -1,5 +1,7 @@
 Welcome to <%= @title %>. Click <a href='/time/now'>here</a> to check the time.
 
+<p>Try some <a href="/admin/secret">admin</a> or <a href="/protected">protected</a> stuff</p>
+
 <h2>Sessions</h2>
 <% if session[:yarf] %>
 Session: <%= session[:yarf] %>
@@ -7,6 +9,6 @@ Session: <%= session[:yarf] %>
 <p>
 <ul>
   <li><a href="/session/hello">Add sesion stuff</a></li>
-  <li><a href="/session/clear">Clear the session</a></li>
+  <li><a href="/session/clear">Clear the session</a> (!! will logout too)</li>
 </ul>
 </p>

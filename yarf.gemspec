@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification
 name: yarf
 version: !ruby/object:Gem::Version
-  version: 0.3.2
+  version: 0.4.1
   prerelease: 
 platform: ruby
 authors:
@@ -9,11 +9,11 @@ authors:
 autorequire: 
 bindir: bin
 cert_chain: []
-date: 2012-01-26 00:00:00.000000000 Z
+date: 2012-01-27 00:00:00.000000000 Z
 dependencies:
 - !ruby/object:Gem::Dependency
   name: rack
-  requirement: &70097831303500 !ruby/object:Gem::Requirement
+  requirement: &70176755544220 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -21,10 +21,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70097831303500
+  version_requirements: *70176755544220
 - !ruby/object:Gem::Dependency
   name: erubis
-  requirement: &70097831301820 !ruby/object:Gem::Requirement
+  requirement: &70176755543220 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -32,10 +32,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70097831301820
+  version_requirements: *70176755543220
 - !ruby/object:Gem::Dependency
   name: tilt
-  requirement: &70097831299940 !ruby/object:Gem::Requirement
+  requirement: &70176755542160 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -43,10 +43,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70097831299940
+  version_requirements: *70176755542160
 - !ruby/object:Gem::Dependency
   name: http_router
-  requirement: &70097831315020 !ruby/object:Gem::Requirement
+  requirement: &70176755541740 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -54,10 +54,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70097831315020
+  version_requirements: *70176755541740
 - !ruby/object:Gem::Dependency
   name: rake
-  requirement: &70097831312880 !ruby/object:Gem::Requirement
+  requirement: &70176755541320 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -65,10 +65,21 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70097831312880
+  version_requirements: *70176755541320
+- !ruby/object:Gem::Dependency
+  name: rack-contrib
+  requirement: &70176755540900 !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: *70176755540900
 - !ruby/object:Gem::Dependency
   name: thin
-  requirement: &70097831307900 !ruby/object:Gem::Requirement
+  requirement: &70176755540460 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -76,10 +87,21 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70097831307900
+  version_requirements: *70176755540460
+- !ruby/object:Gem::Dependency
+  name: warden
+  requirement: &70176755540040 !ruby/object:Gem::Requirement
+    none: false
+    requirements:
+    - - ! '>='
+      - !ruby/object:Gem::Version
+        version: '0'
+  type: :development
+  prerelease: false
+  version_requirements: *70176755540040
 - !ruby/object:Gem::Dependency
   name: rack-test
-  requirement: &70097831323560 !ruby/object:Gem::Requirement
+  requirement: &70176755539600 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -87,10 +109,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70097831323560
+  version_requirements: *70176755539600
 - !ruby/object:Gem::Dependency
   name: rspec
-  requirement: &70097831322260 !ruby/object:Gem::Requirement
+  requirement: &70176755539180 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -98,7 +120,7 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70097831322260
+  version_requirements: *70176755539180
 description: A minimalist (and relatively useless) Ruby/Rack web application framework.
 email: zh@zhware.net
 executables: []
@@ -115,21 +137,43 @@ files:
 - lib/yarf
 - lib/yarf/core_ext.rb
 - lib/yarf.rb
-- examples/app.rb
-- examples/config.ru
-- examples/Gemfile
-- examples/Gemfile.lock
-- examples/Procfile
-- examples/Rakefile
-- examples/spec
-- examples/spec/app_spec.rb
-- examples/spec/spec_helper.rb
-- examples/views
-- examples/views/index.erb
-- examples/views/layout.erb
-- examples/views/session.erb
-- examples/views/special.erb
-- examples/views/time.erb
+- examples/simple
+- examples/simple/app.rb
+- examples/simple/config.ru
+- examples/simple/failure.rb
+- examples/simple/Gemfile
+- examples/simple/Gemfile.lock
+- examples/simple/Procfile
+- examples/simple/Rakefile
+- examples/simple/spec
+- examples/simple/spec/app_spec.rb
+- examples/simple/spec/spec_helper.rb
+- examples/simple/views
+- examples/simple/views/_form.erb
+- examples/simple/views/index.erb
+- examples/simple/views/layout.erb
+- examples/simple/views/login.erb
+- examples/simple/views/protected.erb
+- examples/simple/views/session.erb
+- examples/simple/views/special.erb
+- examples/simple/views/time.erb
+- examples/site
+- examples/site/app.rb
+- examples/site/config.ru
+- examples/site/Gemfile
+- examples/site/Gemfile.lock
+- examples/site/Procfile
+- examples/site/public
+- examples/site/public/css
+- examples/site/public/js
+- examples/site/Rakefile
+- examples/site/spec
+- examples/site/spec/app_spec.rb
+- examples/site/spec/spec_helper.rb
+- examples/site/views
+- examples/site/views/index.erb
+- examples/site/views/layout.erb
+- examples/site/views/readme.md
 - spec/params_spec.rb
 - spec/routing_spec.rb
 - spec/session_spec.rb
