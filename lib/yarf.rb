@@ -6,21 +6,25 @@ require File.join(File.dirname(__FILE__),'yarf','core_ext')
 YARF_ROOT = ENV["YARF_ROOT"] ||= File.expand_path(Dir.pwd) unless defined?(YARF_ROOT)
 
 class Yarf
-  attr_accessor :env, :request, :params
+  attr_accessor :request, :params
 
   HTTP_METHODS = [:get, :post, :put, :delete, :head]
 
-  @@router, @@layout, @@with = HttpRouter.new, :layout, []
+  @@router, @@layout, @@with, @@env = HttpRouter.new, :layout, [], {}
 
   class << self
+    attr_accessor :env
     def root(*args); File.expand_path(File.join(YARF_ROOT, *args)); end
-    def env; instance_variable_get(:@env); end
-    def path_params; env['rack.request.query_hash'].symbolize_keys; end
-    def params; path_params.merge(env['router.params']); end
+    def q_hash; env['rack.request.query_hash'] ||= {}; end
+    def f_hash; env['rack.request.form_hash'] ||= {}; end
+    def path_params; q_hash.symbolize_keys; end
+    def form_params; f_hash.symbolize_keys; end
+    def params; form_params.merge(path_params.merge(env['router.params'])); end
     def static(r,path); @@router.add(r).static(path); end
     def layout(name); @@layout = name; end
     def redirect_to(path,status=302); [status, {"Location"=>path}, []]end
     def session; env['rack.session'] ||= {}; end   # need Rack::Session
+    def warden; env['warden'] ||= {}; end # need Warden
 
     def with(route, &block)
       @@with.push(route)
@@ -31,7 +35,7 @@ class Yarf
     HTTP_METHODS.each do |m|
       class_eval <<-EVAL
         def #{m}(r, &b)
-          @@router.#{m}(@@with * '/' + r) { |env| @env=env; instance_eval(&b) }
+          @@router.#{m}(@@with * '/' + r) { |env| @@env=env; instance_eval(&b) }
         end
       EVAL
     end
@@ -55,18 +59,24 @@ class Yarf
       path = Yarf.root("views", name.to_s)
       Tilt.new("#{path}.#{engine.to_s}").render(self)
     end
+
+    def partial(name, engine, opts={})
+      path = Yarf.root("views", "_#{name.to_s}")
+      locals = {name.to_sym=>opts.delete(:with)}.merge!(opts)
+      Tilt.new("#{path}.#{engine.to_s}").render(self, locals)
+    end
   end
 
   def call(env)
     @request = Rack::Request.new(env)
     @params = @request.params.symbolize_keys
-    @env = env
+    self.class.env = env
     if @params[:_method] and HTTP_METHODS.include?(@params[:_method].downcase.to_sym)
-      @env['REQUEST_METHOD'] = @params[:_method].upcase
+      self.class.env['REQUEST_METHOD'] = @params[:_method].upcase
     end
-    matches, _ = @@router.recognize(@env)
+    matches, _ = @@router.recognize(self.class.env)
     return [404,{},"Not found"] unless matches
-    @@router.call(@env)
+    @@router.call(self.class.env)
   end
 end
 

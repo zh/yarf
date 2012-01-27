@@ -38,7 +38,9 @@ gemspec = Gem::Specification.new do |s|
   s.add_dependency    "http_router"
 
   s.add_development_dependency 'rake'
+  s.add_development_dependency 'rack-contrib'
   s.add_development_dependency 'thin'
+  s.add_development_dependency 'warden'
   s.add_development_dependency 'rack-test'
   s.add_development_dependency 'rspec'
 end
