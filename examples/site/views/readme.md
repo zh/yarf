@@ -9,11 +9,13 @@ A minimalist (and relatively useless) Ruby web applications framework.
 * Powered by [Rack](https://github.com/chneukirchen/rack)
 * Templates via [Tilt](https://github.com/rtomayko/tilt)
 * Routing via [HTTP-Router](https://github.com/joshbuddy/http_router)
-* Routes with parameters - <code>'/show/:id', '/admin/*'</code>
+* Routes with parameters - <code>'/show/:id'</code>
 * Redirects with status - 301 or 302
 * Global and per action layouts
+* Partial views
 * Nesting routes - <code>with '/admin' do ... end</code>
 * Static assets - via *Rack::Static*
+* Authentication *via Warden* (see the example application)
 * Lots of tests included - using *rspec* and *rack-test*
 
 
