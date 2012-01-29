@@ -13,18 +13,20 @@ class Yarf
   @@router, @@layout, @@with, @@env = HttpRouter.new, :layout, [], {}
 
   class << self
-    attr_accessor :env
+    attr_accessor :env, :layout
+
+    let(:q_hash) { env['rack.request.query_hash'] ||= {} }
+    let(:f_hash) { env['rack.request.form_hash'] ||= {} }
+    let(:path_params) { q_hash.symbolize_keys }
+    let(:form_params) { f_hash.symbolize_keys }
+    let(:params) { form_params.merge(path_params.merge(env['router.params'])) }
+    let(:session) { env['rack.session'] ||= {} }   # need Rack::Session
+    let(:warden) { env['warden'] ||= {} } # need Warden
+    let(:layout) { |name| @@layout = name }
+    let(:static) { |route,path| @@router.add(route).static(path) }
+
     def root(*args); File.expand_path(File.join(YARF_ROOT, *args)); end
-    def q_hash; env['rack.request.query_hash'] ||= {}; end
-    def f_hash; env['rack.request.form_hash'] ||= {}; end
-    def path_params; q_hash.symbolize_keys; end
-    def form_params; f_hash.symbolize_keys; end
-    def params; form_params.merge(path_params.merge(env['router.params'])); end
-    def static(r,path); @@router.add(r).static(path); end
-    def layout(name); @@layout = name; end
     def redirect_to(path,status=302); [status, {"Location"=>path}, []]end
-    def session; env['rack.session'] ||= {}; end   # need Rack::Session
-    def warden; env['warden'] ||= {}; end # need Warden
 
     def with(route, &block)
       @@with.push(route)
