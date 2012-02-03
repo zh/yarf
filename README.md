@@ -37,9 +37,9 @@ Install pre-requirements:
 Example application in *myapp.rb*:
 
     require 'yarf'
-    static "/static", Yarf.root("public")
-    layout :bootstrap
     class MyApp < Yarf
+      static "/static", Yarf.root("public")
+      layout :bootstrap
       get "/" do
         render :index
       end
