@@ -1,7 +1,7 @@
 --- !ruby/object:Gem::Specification
 name: yarf
 version: !ruby/object:Gem::Version
-  version: 0.4.1
+  version: 0.5.1
   prerelease: 
 platform: ruby
 authors:
@@ -9,11 +9,11 @@ authors:
 autorequire: 
 bindir: bin
 cert_chain: []
-date: 2012-01-27 00:00:00.000000000 Z
+date: 2012-02-03 00:00:00.000000000 Z
 dependencies:
 - !ruby/object:Gem::Dependency
   name: rack
-  requirement: &70176755544220 !ruby/object:Gem::Requirement
+  requirement: &70309429556960 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -21,10 +21,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70176755544220
+  version_requirements: *70309429556960
 - !ruby/object:Gem::Dependency
   name: erubis
-  requirement: &70176755543220 !ruby/object:Gem::Requirement
+  requirement: &70309429556340 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -32,10 +32,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70176755543220
+  version_requirements: *70309429556340
 - !ruby/object:Gem::Dependency
   name: tilt
-  requirement: &70176755542160 !ruby/object:Gem::Requirement
+  requirement: &70309429555660 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -43,10 +43,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70176755542160
+  version_requirements: *70309429555660
 - !ruby/object:Gem::Dependency
   name: http_router
-  requirement: &70176755541740 !ruby/object:Gem::Requirement
+  requirement: &70309429555040 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -54,10 +54,10 @@ dependencies:
         version: '0'
   type: :runtime
   prerelease: false
-  version_requirements: *70176755541740
+  version_requirements: *70309429555040
 - !ruby/object:Gem::Dependency
   name: rake
-  requirement: &70176755541320 !ruby/object:Gem::Requirement
+  requirement: &70309429554460 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -65,10 +65,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755541320
+  version_requirements: *70309429554460
 - !ruby/object:Gem::Dependency
   name: rack-contrib
-  requirement: &70176755540900 !ruby/object:Gem::Requirement
+  requirement: &70309429553680 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -76,10 +76,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755540900
+  version_requirements: *70309429553680
 - !ruby/object:Gem::Dependency
   name: thin
-  requirement: &70176755540460 !ruby/object:Gem::Requirement
+  requirement: &70309429553160 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -87,10 +87,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755540460
+  version_requirements: *70309429553160
 - !ruby/object:Gem::Dependency
   name: warden
-  requirement: &70176755540040 !ruby/object:Gem::Requirement
+  requirement: &70309429552420 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -98,10 +98,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755540040
+  version_requirements: *70309429552420
 - !ruby/object:Gem::Dependency
   name: rack-test
-  requirement: &70176755539600 !ruby/object:Gem::Requirement
+  requirement: &70309429551840 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -109,10 +109,10 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755539600
+  version_requirements: *70309429551840
 - !ruby/object:Gem::Dependency
   name: rspec
-  requirement: &70176755539180 !ruby/object:Gem::Requirement
+  requirement: &70309429551140 !ruby/object:Gem::Requirement
     none: false
     requirements:
     - - ! '>='
@@ -120,7 +120,7 @@ dependencies:
         version: '0'
   type: :development
   prerelease: false
-  version_requirements: *70176755539180
+  version_requirements: *70309429551140
 description: A minimalist (and relatively useless) Ruby/Rack web application framework.
 email: zh@zhware.net
 executables: []
